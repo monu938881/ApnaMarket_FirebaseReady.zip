@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Cotton Kurti",
+    "price": 399,
+    "desc": "Soft cotton daily wear"
+  },
+  {
+    "id": 2,
+    "title": "Men T-Shirt",
+    "price": 299,
+    "desc": "Classic fit, breathable"
+  },
+  {
+    "id": 3,
+    "title": "Kids Shoes",
+    "price": 499,
+    "desc": "Lightweight and comfy"
+  }
+]

@@ -1,0 +1,17 @@
+workflows:
+  apna-market-build:
+    name: Build Apna Market APK
+    environment:
+      flutter: stable
+    scripts:
+      - name: Ensure Android project exists
+        script: |
+          if [ ! -d "android" ]; then
+            flutter create .
+          fi
+      - name: Get dependencies
+        script: flutter pub get
+      - name: Build release APK
+        script: flutter build apk --release
+    artifacts:
+      - build/app/outputs/flutter-apk/app-release.apk
