@@ -3,15 +3,22 @@ workflows:
     name: Build Apna Market APK
     environment:
       flutter: stable
+      vars:
+        JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64
     scripts:
       - name: Ensure Android project exists
         script: |
           if [ ! -d "android" ]; then
             flutter create .
           fi
+      - name: Accept Android Licenses
+        script: yes | sdkmanager --licenses || true
+      - name: Clean project
+        script: flutter clean
       - name: Get dependencies
         script: flutter pub get
       - name: Build release APK
         script: flutter build apk --release
     artifacts:
       - build/app/outputs/flutter-apk/app-release.apk
+
