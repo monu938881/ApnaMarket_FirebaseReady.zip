@@ -1,23 +1,23 @@
 workflows:
-  apna-market-build:
-    name: Build Apna Market APK
+  apna-market:
+    name: Build Apna Market Android APK
     max_build_duration: 60
+    instance_type: linux
     environment:
       flutter: stable
-      xcode: latest
       vars:
         JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64
     scripts:
       - name: Setup Flutter
         script: |
-          flutter doctor -v
           flutter clean
+          flutter doctor -v
       - name: Ensure Android project exists
         script: |
           if [ ! -d "android" ]; then
             flutter create .
           fi
-      - name: Accept Android SDK Licenses
+      - name: Accept Android SDK licenses
         script: yes | sdkmanager --licenses || true
       - name: Get dependencies
         script: flutter pub get
